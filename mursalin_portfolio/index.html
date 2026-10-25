@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Mursalin Hossain Misat - Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts Inter & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#080c16',
+                        cardBg: '#0f172a',
+                        cardBorder: '#1e293b',
+                        accentCyan: '#00f2fe',
+                        accentBlue: '#38bdf8',
+                        accentPurple: '#8b5cf6',
+                        accentNeon: '#10b981'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite alternate',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' },
+                            '100%': { boxShadow: '0 0 35px rgba(139, 92, 246, 0.4)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080c16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(45deg, #00f2fe, #8b5cf6);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .glow-border:hover::after {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-200 font-sans selection:bg-accentCyan selection:text-darkBg min-h-screen">
+
+    <nav class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-gray-800/80 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#hero" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-accentCyan to-accentPurple flex items-center justify-center text-darkBg font-black font-mono text-xl group-hover:scale-105 transition-transform">
+                        M
+                    </div>
+                    <span class="font-bold text-lg tracking-tight text-white group-hover:text-accentCyan transition-colors">
+                        Mursalin<span class="text-accentCyan">.Misat</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#about" class="hover:text-accentCyan transition-colors">About</a>
+                    <a href="#skills" class="hover:text-accentCyan transition-colors">Skills</a>
+                    <a href="#publications" class="hover:text-accentCyan transition-colors">Publications</a>
+                    <a href="#projects" class="hover:text-accentCyan transition-colors">Projects</a>
+                    <a href="#honors" class="hover:text-accentCyan transition-colors">Honors</a>
+                    <a href="#deploy-guide" class="px-3 py-1.5 rounded-md bg-accentCyan/10 text-accentCyan border border-accentCyan/30 hover:bg-accentCyan/20 transition-all">
+                        <i class="fab fa-github mr-1"></i> 
+                    </a>
+                    <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-accentCyan to-accentBlue text-darkBg font-semibold hover:shadow-lg hover:shadow-accentCyan/30 transition-all">
+                        Contact
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-gray-800 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="#about" class="block py-2 hover:text-accentCyan transition-colors">About</a>
+            <a href="#skills" class="block py-2 hover:text-accentCyan transition-colors">Skills</a>
+            <a href="#publications" class="block py-2 hover:text-accentCyan transition-colors">Publications</a>
+            <a href="#projects" class="block py-2 hover:text-accentCyan transition-colors">Projects</a>
+            <a href="#honors" class="block py-2 hover:text-accentCyan transition-colors">Honors</a>
+            <a href="#deploy-guide" class="block py-2 text-accentCyan"><i class="fab fa-github mr-1"></i> GitHub Deploy Guide</a>
+            <a href="#contact" class="block py-2 text-center rounded-lg bg-gradient-to-r from-accentCyan to-accentBlue text-darkBg font-semibold">Contact Me</a>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+        <!-- Background Grid & Glows -->
+        <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-30 -z-10"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accentCyan/10 rounded-full blur-[120px] -z-10"></div>
+        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-accentPurple/15 rounded-full blur-[100px] -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                
+                <!-- Left Info Banner -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-panel border border-accentCyan/30 text-accentCyan text-xs sm:text-sm font-mono mb-6">
+                        <span class="w-2 h-2 rounded-full bg-accentNeon animate-ping"></span>
+                        IoT & Robotics Engineer | Software Engineer
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+                        Hi, I'm <br class="hidden sm:inline" />
+                        <span class="bg-gradient-to-r from-accentCyan via-accentBlue to-accentPurple bg-clip-text text-transparent">
+                            Md. Mursalin Hossain Misat
+                        </span>
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                        Pioneering intelligent IoT hardware, AI-powered computer vision models, and autonomous robotics systems. Experienced in embedded software development, research publications, and leading engineering communities.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
+                        <a href="#contact" class="px-6 py-3 rounded-xl bg-gradient-to-r from-accentCyan to-accentBlue text-darkBg font-bold hover:shadow-lg hover:shadow-accentCyan/25 transition-all flex items-center gap-2">
+                            <i class="fas fa-paper-plane"></i> Get In Touch
+                        </a>
+                        <a href="#publications" class="px-6 py-3 rounded-xl glass-panel border border-gray-700 hover:border-accentCyan text-white font-medium hover:text-accentCyan transition-all flex items-center gap-2">
+                            <i class="fas fa-microscope"></i> View Research
+                        </a>
+                        
+                        <button onclick="window.open('https://drive.google.com/drive/folders/1sm_OOfVMpcsYq26zKo95ST-hEiw6vE2A?usp=sharing', '_blank')"
+    class="px-6 py-3 rounded-xl glass-panel border border-accentPurple/40 text-accentPurple hover:bg-accentPurple/10 font-medium transition-all flex items-center gap-2">
+    <i class="fas fa-download"></i> Download CV
+                        </button>
+  
+                    </div>
+
+                    <!-- Social / Scholar Links Bar -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-gray-400">
+                        <a href="https://www.linkedin.com/in/mursalin-hossain-612337250" target="_blank" class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-accentCyan hover:border-accentCyan transition-all" title="LinkedIn">
+                            <i class="fab fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="https://github.com/Mursalinmisat16" target="_blank" class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-accentCyan hover:border-accentCyan transition-all" title="GitHub">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="mailto:mursalin159358@gmail.com" class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-accentCyan hover:border-accentCyan transition-all" title="Email">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1DbJNm7YRa/" target="_blank" class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-accentCyan hover:border-accentCyan transition-all" title="Facebook">
+                            <i class="fab fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mursa636/" target="_blank" class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-accentCyan hover:border-accentCyan transition-all" title="Instagram">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=cKDnq9kAAAAJ&hl=en" class="px-3 py-2 rounded-lg glass-panel text-xs font-mono hover:text-accentCyan hover:border-accentCyan transition-all" title="Google Scholar">
+                            <i class="fas fa-graduation-cap mr-1"></i> Scholar
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Misat?ev=hdr_xprf" class="px-3 py-2 rounded-lg glass-panel text-xs font-mono hover:text-accentCyan hover:border-accentCyan transition-all" title="ResearchGate">
+                            <i class="fas fa-book-open mr-1"></i> ResearchGate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Profile Visual Badge -->
+                <div class="flex-1 relative flex justify-center">
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-accentCyan via-accentBlue to-accentPurple animate-pulse-glow">
+                        <div class="w-full h-full rounded-full bg-darkBg p-2 overflow-hidden relative group">
+                            <!-- Image Fallback Graphic -->
+                            <img src="https://placehold.co/400x400/0f172a/00f2fe?text=Mursalin+Misat" alt="Md. Mursalin Hossain Misat" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/0f172a/38bdf8?text=MM'">
+                        </div>
+
+                        <!-- Floating Micro-Badges -->
+                        <div class="absolute -top-2 -left-4 glass-panel px-3 py-1.5 rounded-lg border border-accentCyan/40 text-xs font-mono text-accentCyan flex items-center gap-2 shadow-lg animate-float">
+                            <i class="fas fa-robot text-sm"></i> ROS / Autonomous
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 glass-panel px-3 py-1.5 rounded-lg border border-accentPurple/40 text-xs font-mono text-accentPurple flex items-center gap-2 shadow-lg animate-float" style="animation-delay: 1.5s;">
+                            <i class="fas fa-microchip text-sm"></i> ESP32 & LoRaWAN
+                        </div>
+                        <div class="absolute top-1/2 -right-8 glass-panel px-3 py-1.5 rounded-lg border border-accentNeon/40 text-xs font-mono text-accentNeon flex items-center gap-2 shadow-lg animate-float" style="animation-delay: 2s;">
+                            <i class="fas fa-brain text-sm"></i> AI / Computer Vision
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-cardBg/40 border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-mono text-accentCyan uppercase tracking-widest mb-2">Background & Academic Foundation</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">About Me & Education</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- About Bio -->
+                <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fas fa-user-gear text-accentCyan"></i> Professional Summary
+                        </h4>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            I am a dedicated IoT and Robotics engineer with hands-on research and software development expertise. My domain focus covers Artificial Intelligence, Machine Learning, Deep Learning, Image Processing, Computer Vision, LLMs, NLP, and Autonomous Systems.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            I thrive in collaborative, research-oriented, and complex problem-solving environments. With strong communication and leadership qualities, I served as the President of the UFTB Robotics Club and organized Bangladesh's premier university tech competitions.
+                        </p>
+                    </div>
+
+                    <!-- Key Metrics -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-gray-800 text-center">
+                        <div class="p-3 rounded-xl bg-darkBg/60">
+                            <span class="block text-2xl font-bold text-accentCyan font-mono">4+</span>
+                            <span class="text-xs text-gray-400">Research Papers</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-darkBg/60">
+                            <span class="block text-2xl font-bold text-accentBlue font-mono">160+</span>
+                            <span class="text-xs text-gray-400">Teams Coordinated</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-darkBg/60">
+                            <span class="block text-2xl font-bold text-accentPurple font-mono">3.11</span>
+                            <span class="text-xs text-gray-400">CGPA (161 Credits)</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-darkBg/60">
+                            <span class="block text-2xl font-bold text-accentNeon font-mono">Gold</span>
+                            <span class="text-xs text-gray-400">Duke of Edinburgh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Details -->
+                <div class="lg:col-span-5 glass-panel p-6 sm:p-8 rounded-2xl border-l-4 border-l-accentCyan flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-mono text-accentCyan px-2 py-0.5 rounded bg-accentCyan/10">2022 - 2026</span>
+                            <span class="text-xs text-gray-400"><i class="fas fa-location-dot text-red-400 mr-1"></i>Gazipur, Bangladesh</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-1">University of Frontier Technology, Bangladesh</h4>
+                        <p class="text-accentBlue text-sm font-medium mb-4">B.Sc. in IoT and Robotics Engineering</p>
+
+                        <div class="space-y-3 text-sm text-gray-300 mb-6">
+                            <div class="flex justify-between border-b border-gray-800/80 pb-2">
+                                <span class="text-gray-400">Graduation Status:</span>
+                                <span class="font-semibold text-white">2026</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-800/80 pb-2">
+                                <span class="text-gray-400">Final CGPA:</span>
+                                <span class="font-mono text-accentCyan">3.11 / 4.00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-800/80 pb-2">
+                                <span class="text-gray-400">Completed Credits:</span>
+                                <span class="font-mono text-white">161 Credits</span>
+                            </div>
+                        </div>
+
+                        <!-- Thesis Box -->
+                        <div class="p-4 rounded-xl bg-darkBg/80 border border-gray-800">
+                            <span class="text-xs font-mono text-accentPurple uppercase tracking-wider block mb-1">
+                                <i class="fas fa-scroll mr-1"></i> Undergraduate Thesis
+                            </span>
+                            <p class="text-xs sm:text-sm text-gray-200 font-medium">
+                                "Design and development of a LoRa-enabled CanSat for Real-time Atmospheric Monitoring and Machine-Learning-based Weather Prediction"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-mono text-accentCyan uppercase tracking-widest mb-2">Technical Competencies</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Skills & Technologies</h3>
+            </div>
+
+            <!-- Skill Filter Category Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10" id="skill-tabs">
+                <button onclick="filterSkills('all')" class="skill-tab-btn active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-accentCyan text-darkBg">All Skills</button>
+                <button onclick="filterSkills('ai')" class="skill-tab-btn px-4 py-2 rounded-xl text-sm font-medium glass-panel hover:text-accentCyan transition-all">AI / ML / DL</button>
+                <button onclick="filterSkills('hardware')" class="skill-tab-btn px-4 py-2 rounded-xl text-sm font-medium glass-panel hover:text-accentCyan transition-all">Embedded & Hardware</button>
+                <button onclick="filterSkills('robotics')" class="skill-tab-btn px-4 py-2 rounded-xl text-sm font-medium glass-panel hover:text-accentCyan transition-all">Robotics & ROS</button>
+                <button onclick="filterSkills('web')" class="skill-tab-btn px-4 py-2 rounded-xl text-sm font-medium glass-panel hover:text-accentCyan transition-all">Web & App Dev</button>
+                <button onclick="filterSkills('lang')" class="skill-tab-btn px-4 py-2 rounded-xl text-sm font-medium glass-panel hover:text-accentCyan transition-all">Languages & Cloud</button>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="skills-grid">
+                
+                <!-- Category: Languages -->
+                <div class="skill-card lang glass-panel p-4 rounded-xl text-center hover:border-accentCyan transition-all hover:-translate-y-1">
+                    <i class="fab fa-python text-3xl text-yellow-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Python</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Language</span>
+                </div>
+                <div class="skill-card lang glass-panel p-4 rounded-xl text-center hover:border-accentCyan transition-all hover:-translate-y-1">
+                    <i class="fas fa-code text-3xl text-blue-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">C++</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Language</span>
+                </div>
+                <div class="skill-card lang glass-panel p-4 rounded-xl text-center hover:border-accentCyan transition-all hover:-translate-y-1">
+                    <i class="fab fa-js-square text-3xl text-yellow-300 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">JavaScript</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Language</span>
+                </div>
+                <div class="skill-card lang glass-panel p-4 rounded-xl text-center hover:border-accentCyan transition-all hover:-translate-y-1">
+                    <i class="fas fa-bolt text-3xl text-cyan-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Dart</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Language</span>
+                </div>
+
+                <!-- Category: AI/ML -->
+                <div class="skill-card ai glass-panel p-4 rounded-xl text-center hover:border-accentPurple transition-all hover:-translate-y-1">
+                    <i class="fas fa-brain text-3xl text-orange-500 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">PyTorch</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Deep Learning</span>
+                </div>
+                <div class="skill-card ai glass-panel p-4 rounded-xl text-center hover:border-accentPurple transition-all hover:-translate-y-1">
+                    <i class="fas fa-eye text-3xl text-emerald-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">OpenCV</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Computer Vision</span>
+                </div>
+                <div class="skill-card ai glass-panel p-4 rounded-xl text-center hover:border-accentPurple transition-all hover:-translate-y-1">
+                    <i class="fas fa-diagram-project text-3xl text-accentCyan mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Scikit-Learn</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Machine Learning</span>
+                </div>
+                <div class="skill-card ai glass-panel p-4 rounded-xl text-center hover:border-accentPurple transition-all hover:-translate-y-1">
+                    <i class="fas fa-chart-line text-3xl text-purple-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">XGBoost</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Ensemble ML</span>
+                </div>
+                <div class="skill-card ai glass-panel p-4 rounded-xl text-center hover:border-accentPurple transition-all hover:-translate-y-1">
+                    <i class="fas fa-table text-3xl text-blue-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Pandas & NumPy</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Data Analytics</span>
+                </div>
+
+                <!-- Category: Hardware / Embedded -->
+                <div class="skill-card hardware glass-panel p-4 rounded-xl text-center hover:border-accentNeon transition-all hover:-translate-y-1">
+                    <i class="fas fa-microchip text-3xl text-teal-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">ESP32 & ESP32-CAM</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Microcontroller</span>
+                </div>
+                <div class="skill-card hardware glass-panel p-4 rounded-xl text-center hover:border-accentNeon transition-all hover:-translate-y-1">
+                    <i class="fab fa-raspberry-pi text-3xl text-red-500 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Raspberry Pi 4</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Embedded Board</span>
+                </div>
+                <div class="skill-card hardware glass-panel p-4 rounded-xl text-center hover:border-accentNeon transition-all hover:-translate-y-1">
+                    <i class="fas fa-wifi text-3xl text-cyan-300 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">LoRaWAN RA02</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Long-Range Wireless</span>
+                </div>
+                <div class="skill-card hardware glass-panel p-4 rounded-xl text-center hover:border-accentNeon transition-all hover:-translate-y-1">
+                    <i class="fas fa-layer-group text-3xl text-accentCyan mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">PCB Design</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Schematic & Layout</span>
+                </div>
+                <div class="skill-card hardware glass-panel p-4 rounded-xl text-center hover:border-accentNeon transition-all hover:-translate-y-1">
+                    <i class="fas fa-memory text-3xl text-green-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Arduino / STM32</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Embedded C++</span>
+                </div>
+
+                <!-- Category: Robotics -->
+                <div class="skill-card robotics glass-panel p-4 rounded-xl text-center hover:border-accentCyan transition-all hover:-translate-y-1">
+                    <i class="fas fa-robot text-3xl text-accentCyan mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">ROS & ROS2</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Robot Middleware</span>
+                </div>
+                <div class="skill-card robotics glass-panel p-4 rounded-xl text-center hover:border-accentCyan transition-all hover:-translate-y-1">
+                    <i class="fas fa-compass text-3xl text-purple-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Autonomous Systems</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Navigation & AUV</span>
+                </div>
+
+                <!-- Category: Web & App Dev -->
+                <div class="skill-card web glass-panel p-4 rounded-xl text-center hover:border-accentBlue transition-all hover:-translate-y-1">
+                    <i class="fab fa-react text-3xl text-sky-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">React & Native</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Frontend / Mobile</span>
+                </div>
+                <div class="skill-card web glass-panel p-4 rounded-xl text-center hover:border-accentBlue transition-all hover:-translate-y-1">
+                    <i class="fas fa-mobile-screen-button text-3xl text-blue-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Flutter</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Cross-Platform</span>
+                </div>
+                <div class="skill-card web glass-panel p-4 rounded-xl text-center hover:border-accentBlue transition-all hover:-translate-y-1">
+                    <i class="fas fa-server text-3xl text-emerald-400 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">FastAPI</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Backend REST API</span>
+                </div>
+
+                <!-- Category: Tools & Cloud -->
+                <div class="skill-card lang glass-panel p-4 rounded-xl text-center hover:border-amber-400 transition-all hover:-translate-y-1">
+                    <i class="fas fa-fire text-3xl text-amber-500 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Firebase & Blynk</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Cloud IoT DB</span>
+                </div>
+                <div class="skill-card lang glass-panel p-4 rounded-xl text-center hover:border-amber-400 transition-all hover:-translate-y-1">
+                    <i class="fab fa-git-alt text-3xl text-orange-600 mb-2 block"></i>
+                    <span class="font-semibold text-sm text-white block">Git & GitHub</span>
+                    <span class="text-[10px] text-gray-400 uppercase font-mono">Version Control</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<section id="publications" class="py-20 bg-cardBg/40 border-y border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-mono text-accentCyan uppercase tracking-widest mb-2">
+                Peer-Reviewed Papers & Contributions
+            </h2>
+            <h3 class="text-3xl sm:text-4xl font-bold text-white">
+                Research & Publications
+            </h3>
+        </div>
+
+        <div class="space-y-6">
+
+            <!-- Publication 1 -->
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border-l-4 border-l-accentCyan hover:border-gray-700 transition-all">
+
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono border border-emerald-500/30">
+                        Wiley - Journal of Sensors (2026)
+                    </span>
+                    <span class="text-xs text-gray-400 font-mono">
+                        <i class="fas fa-check-circle text-accentNeon mr-1"></i>
+                        Published
+                    </span>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-2 leading-snug">
+                    IoT Enabled Smart Poultry Farming System With Deep Learning for Chicken Health Detection in Real-Time
+                </h4>
+
+                <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                    Integrated an IoT-enabled environmental monitoring network with an EfficientNet-B0 deep learning classifier. Achieved
+                    <strong class="text-accentCyan">99.19% accuracy</strong>
+                    on standard benchmarking datasets and
+                    <strong class="text-accentCyan">95.62% accuracy</strong>
+                    on deployment in real-world farm conditions.
+                </p>
+
+                <div class="text-xs text-gray-400 font-mono">
+                    <strong class="text-gray-300">Authors:</strong>
+                    Shahbaj Ahmed Sakib,
+                    <span class="text-accentCyan underline font-semibold">Md Mursalin Hossain Misat</span>,
+                    Tanjum Rahi Akanto, Jahedul Islam, Fahmida Ahmed Antara.
+                </div>
+
+                <a href="https://doi.org/10.1155/js/1433795"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-xl bg-accentCyan/10 text-accentCyan border border-accentCyan/30 hover:bg-accentCyan/20 transition-all font-medium text-sm">
+                    <i class="fas fa-external-link-alt"></i>
+                    View Paper
+                </a>
+
+            </div>
+
+
+            <!-- Publication 2 -->
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border-l-4 border-l-accentPurple hover:border-gray-700 transition-all">
+
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <span class="px-3 py-1 rounded-full bg-accentPurple/10 text-accentPurple text-xs font-mono border border-accentPurple/30">
+                        Springer, Cham - WorldS4 (2025)
+                    </span>
+                    <span class="text-xs text-gray-400 font-mono">
+                        Pages 236–245
+                    </span>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-2 leading-snug">
+                    Smart IoT Egg Incubator System with Machine Learning for Damaged Egg Detection
+                </h4>
+
+                <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                    Presents an automated incubator that combines environmental control, real-time visual streaming, and machine learning models for early detection of micro-fractures and damaged eggs to significantly boost hatchability.
+                </p>
+
+                <div class="text-xs text-gray-400 font-mono">
+                    <strong class="text-gray-300">Authors:</strong>
+                    Anish Giri, Sharna Rani Das, Abu Zahid Md Jalal Uddin Joy, ASM Akib,
+                    <span class="text-accentCyan underline font-semibold">Md Mursalin Hossain Misat</span>,
+                    Monica Khadgi, Manish Giri, Bishesh Shahi.
+                </div>
+
+                <a href="https://link.springer.com/chapter/10.1007/978-3-032-11512-6_20"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-xl bg-accentPurple/10 text-accentPurple border border-accentPurple/30 hover:bg-accentPurple/20 transition-all font-medium text-sm">
+                    <i class="fas fa-external-link-alt"></i>
+                    View Paper
+                </a>
+
+            </div>
+
+
+            <!-- Publication 3 -->
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border-l-4 border-l-accentBlue hover:border-gray-700 transition-all">
+
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <span class="px-3 py-1 rounded-full bg-accentBlue/10 text-accentBlue text-xs font-mono border border-accentBlue/30">
+                        IEEE COMPAS (2025)
+                    </span>
+                    <span class="text-xs text-gray-400 font-mono">
+                        2nd International Conference
+                    </span>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-2 leading-snug">
+                    Edge-to-Cloud Orchestrated Multi-Sensor IoT Framework for Real-Time WQI Classification and Predictive Assessment via Ensemble ML
+                </h4>
+
+                <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                    Deployed an ESP32 edge microcontroller with six distinct environmental sensors linked to Firebase Realtime Cloud DB and a live web dashboard. Features an ensemble ML pipeline obtaining an
+                    <strong class="text-accentBlue">R² of 0.9966 and 99.49% classification accuracy</strong>.
+                </p>
+
+                <div class="text-xs text-gray-400 font-mono">
+                    <strong class="text-gray-300">Authors:</strong>
+                    Abdul Hasib, TM Mehrab Hasan, Md Meraj Serker,
+                    <span class="text-accentCyan underline font-semibold">Md Mursalin Hossain Misat</span>,
+                    Jakia Arthy, Arjina Nasrin Khan.
+                </div>
+
+                <a href="https://ieeexplore.ieee.org/abstract/document/11381747"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-xl bg-accentBlue/10 text-accentBlue border border-accentBlue/30 hover:bg-accentBlue/20 transition-all font-medium text-sm">
+                    <i class="fas fa-external-link-alt"></i>
+                    View Paper
+                </a>
+
+            </div>
+
+
+            <!-- Publication 4 -->
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border-l-4 border-l-accentNeon hover:border-gray-700 transition-all">
+
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <span class="px-3 py-1 rounded-full bg-accentNeon/10 text-accentNeon text-xs font-mono border border-accentNeon/30">
+                        IEEE STI (2025)
+                    </span>
+                    <span class="text-xs text-gray-400 font-mono">
+                        7th Intl Conference on Sustainable Tech
+                    </span>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mb-2 leading-snug">
+                    SafeEntry: An ESP32-CAM-Based Intelligent Door Lock with Multi-Factor Security and Cloud Image Logging
+                </h4>
+
+                <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                    A multi-factor physical access control solution combining fingerprint biometrics, encrypted PIN keypad access, and ESP32-CAM cloud security image logging with instant alert capabilities.
+                </p>
+
+                <div class="text-xs text-gray-400 font-mono">
+                    <strong class="text-gray-300">Authors:</strong>
+                    <span class="text-accentCyan underline font-semibold">Md Mursalin Hossain Misat</span>,
+                    Shahbaj Ahmed Sakib, Md Rafiqul Islam.
+                </div>
+
+                <a href="https://ieeexplore.ieee.org/document/11367545"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-xl bg-accentNeon/10 text-accentNeon border border-accentNeon/30 hover:bg-accentNeon/20 transition-all font-medium text-sm">
+                    <i class="fas fa-external-link-alt"></i>
+                    View Paper
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-mono text-accentCyan uppercase tracking-widest mb-2">Hardware, AI & Embedded Systems</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Featured Engineering Projects</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+               
+<!-- Project 1 -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-accentCyan transition-all group">
+
+    <div>
+        <div class="w-12 h-12 rounded-xl bg-accentCyan/10 text-accentCyan flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-satellite"></i>
+        </div>
+
+        <h4 class="text-lg font-bold text-white mb-2">
+            LoRa CanSat Weather Station
+        </h4>
+
+        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+            Miniature atmospheric satellite built with ESP32 & LoRaWAN for telemetry transmission, paired with ML algorithms for real-time local weather forecasting.
+        </p>
+    </div>
+
+    <div>
+        <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentCyan">ESP32</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentCyan">LoRaWAN</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentCyan">Python</span>
+        </div>
+
+        <!-- GitHub Repository Button -->
+        <a href="https://github.com/Mursalinmisat16/LoRa-Based-CanSat-Weather-Monitoring-Weather-prediction"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-2 mt-5 px-4 py-2.5 rounded-xl bg-accentCyan/10 text-accentCyan border border-accentCyan/30 hover:bg-accentCyan/20 transition-all text-sm font-medium w-full">
+            <i class="fab fa-github text-base"></i>
+            View on GitHub
+            <i class="fas fa-external-link-alt text-xs"></i>
+        </a>
+    </div>
+
+</div>
+
+
+               
+<!-- Project 2 -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-accentBlue transition-all group">
+
+    <div>
+        <div class="w-12 h-12 rounded-xl bg-accentBlue/10 text-accentBlue flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-water"></i>
+        </div>
+
+        <h4 class="text-lg font-bold text-white mb-2">
+            DoB Hydrojan AUV
+        </h4>
+
+        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+            Autonomous Underwater Vehicle designed for RoboSub 2025 international competition. Developed control software, computer vision subroutines, and ROS integration.
+        </p>
+    </div>
+
+    <div>
+        <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentBlue">ROS / ROS2</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentBlue">OpenCV</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentBlue">C++</span>
+        </div>
+
+        <!-- YouTube Video Button -->
+        <a href="https://www.youtube.com/watch?v=z0UIQMQ7qM0"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-2 mt-5 px-4 py-2.5 rounded-xl bg-accentBlue/10 text-accentBlue border border-accentBlue/30 hover:bg-accentBlue/20 transition-all text-sm font-medium w-full">
+            <i class="fab fa-youtube text-lg"></i>
+            Watch on YouTube
+            <i class="fas fa-external-link-alt text-xs"></i>
+        </a>
+    </div>
+
+</div>
+
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-accentPurple transition-all group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-accentPurple/10 text-accentPurple flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-egg"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2">Smart Poultry & Incubator Management</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                            Cloud-synced farm management with deep learning image models for automated chicken disease detection and egg defect diagnostics.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800">
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentPurple">PyTorch</span>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentPurple">Firebase</span>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentPurple">Flutter</span>
+                    </div>
+                </div>
+
+
+<!-- Project 4 -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-accentNeon transition-all group">
+
+    <div>
+        <div class="w-12 h-12 rounded-xl bg-accentNeon/10 text-accentNeon flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-shield-halved"></i>
+        </div>
+
+        <h4 class="text-lg font-bold text-white mb-2">
+            SafeEntry Intelligent Door Lock
+        </h4>
+
+        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+            Multi-factor biometric access control system using ESP32-CAM with real-time snapshot logging to cloud and automated notifications.
+        </p>
+    </div>
+
+    <div>
+        <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentNeon">ESP32-CAM</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentNeon">Fingerprint</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentNeon">Blynk</span>
+        </div>
+
+        <!-- YouTube Video Button -->
+        <a href="https://www.youtube.com/watch?v=vREdUHg52Ms"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-2 mt-5 px-4 py-2.5 rounded-xl bg-accentNeon/10 text-accentNeon border border-accentNeon/30 hover:bg-accentNeon/20 transition-all text-sm font-medium w-full">
+            <i class="fab fa-youtube text-lg"></i>
+            Watch on YouTube
+            <i class="fas fa-external-link-alt text-xs"></i>
+        </a>
+    </div>
+
+</div>
+
+
+              
+<!-- Project 5 -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-red-400 transition-all group">
+
+    <div>
+        <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-fire-extinguisher"></i>
+        </div>
+
+        <h4 class="text-lg font-bold text-white mb-2">
+            Fire Detection & Surveillance Robot
+        </h4>
+
+        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+            Mobile autonomous surveillance robot with thermal/flame sensor array, camera video feedback, and automatic fire suppression alert systems.
+        </p>
+    </div>
+
+    <div>
+        <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-red-400">Arduino</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-red-400">Flame Sensors</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-red-400">RF/Bluetooth</span>
+        </div>
+
+        <!-- YouTube Video Button -->
+        <a href="https://www.youtube.com/watch?v=dTHZVVde5_g"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-2 mt-5 px-4 py-2.5 rounded-xl bg-red-500/10 text-red-400 border border-red-400/30 hover:bg-red-500/20 transition-all text-sm font-medium w-full">
+            <i class="fab fa-youtube text-lg"></i>
+            Watch on YouTube
+            <i class="fas fa-external-link-alt text-xs"></i>
+        </a>
+    </div>
+
+</div>
+
+
+             
+<!-- Project 6 -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-yellow-400 transition-all group">
+
+    <div>
+        <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-user-astronaut"></i>
+        </div>
+
+        <h4 class="text-lg font-bold text-white mb-2">
+            Humanoid & Line Follower Robots
+        </h4>
+
+        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+            Custom-designed bipedal humanoid movement mechanics and high-speed PID-tuned line-following robotics for competitive track performance.
+        </p>
+    </div>
+
+    <div>
+        <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-yellow-400">PID Control</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-yellow-400">Servo Dynamics</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-yellow-400">STM32</span>
+        </div>
+
+        <!-- LinkedIn Video Button -->
+        <a href="https://www.linkedin.com/posts/mursalin-hossain-612337250_robotics-humanoidabrrobot-iot-ugcPost-7177371110513025025-0ajY/?utm_source=share&utm_medium=member_android&rcm=ACoAAD38Sa4Bt0wPnyl_c8N6opknaNvsEhhO9-Y"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-2 mt-5 px-4 py-2.5 rounded-xl bg-yellow-500/10 text-yellow-400 border border-yellow-400/30 hover:bg-yellow-500/20 transition-all text-sm font-medium w-full">
+            <i class="fab fa-linkedin text-lg"></i>
+            Watch on LinkedIn
+            <i class="fas fa-external-link-alt text-xs"></i>
+        </a>
+    </div>
+
+</div>
+
+<!-- Project 7 -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-accentPurple transition-all group">
+
+    <div>
+        <div class="w-12 h-12 rounded-xl bg-accentPurple/10 text-accentPurple flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-route"></i>
+        </div>
+
+        <h4 class="text-lg font-bold text-white mb-2">
+            GHURI – Smart Travel & Safety Platform
+        </h4>
+
+        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+            A smart travel and personal safety platform integrating GPS tracking, emergency SOS alerts, and travel management features to help travelers navigate their journeys more safely.
+        </p>
+    </div>
+
+    <div>
+        <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentPurple">Flutter</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentPurple">FastAPI</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentPurple">SQLite</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentPurple">ESP32</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-darkBg text-accentPurple">GPS</span>
+        </div>
+
+        <!-- GitHub Repository Button -->
+        <a href="https://github.com/Mursalinmisat16/GHURI-Smart-Travel-Safety-Platform"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-2 mt-5 px-4 py-2.5 rounded-xl bg-accentPurple/10 text-accentPurple border border-accentPurple/30 hover:bg-accentPurple/20 transition-all text-sm font-medium w-full">
+            <i class="fab fa-github text-base"></i>
+            View on GitHub
+            <i class="fas fa-external-link-alt text-xs"></i>
+        </a>
+    </div>
+
+</div>
+
+    </section>
+
+    <section id="honors" class="py-20 bg-cardBg/40 border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-mono text-accentCyan uppercase tracking-widest mb-2">Leadership, Achievements & Certifications</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Honors & Roles</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Leadership & Roles -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-award text-amber-400"></i> Leadership & Key Achievements
+                    </h4>
+
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-amber-400">
+                        <div class="flex justify-between items-start mb-1">
+                            <h5 class="font-bold text-white text-base">Elected President — UFTB Robotics Club</h5>
+                            <span class="text-xs font-mono text-amber-400">2025–2026</span>
+                        </div>
+                        <p class="text-xs text-gray-300">
+                            Led executive team, delivered 10+ workshops (IoT, PCB design, CAD), and directed national robotics events engaging 160+ teams.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-accentCyan">
+                        <div class="flex justify-between items-start mb-1">
+                            <h5 class="font-bold text-white text-base">Lead Organizer — RoboFusion 1.0</h5>
+                            <span class="text-xs font-mono text-accentCyan">2026</span>
+                        </div>
+                        <p class="text-xs text-gray-300">
+                            First national robotics festival at UFTB. Directed 160+ teams, 500+ participants, 2,000+ attendees, 15+ sponsors, and 50+ judges.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-yellow-400">
+                        <div class="flex justify-between items-start mb-1">
+                            <h5 class="font-bold text-white text-base">Gold Medalist — The Duke of Edinburgh's Award</h5>
+                            <span class="text-xs font-mono text-yellow-400">Gold Award</span>
+                        </div>
+                        <p class="text-xs text-gray-300">
+                            Achieved highest honor through community volunteering, winter blanket relief, blood donation drives, and fitness leadership.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-accentPurple">
+                        <div class="flex justify-between items-start mb-1">
+                            <h5 class="font-bold text-white text-base">Judge — WICE 2026 & Innovation World Cup</h5>
+                            <span class="text-xs font-mono text-accentPurple">2026</span>
+                        </div>
+                        <p class="text-xs text-gray-300">
+                            Selected to evaluate technological innovations, prototype feasibility, and engineering impact in national rounds.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-5 rounded-xl border-l-4 border-l-accentBlue">
+                        <div class="flex justify-between items-start mb-1">
+                            <h5 class="font-bold text-white text-base">Finalist — VisionX 2025 (DU) & ICT Olympiad</h5>
+                            <span class="text-xs font-mono text-accentBlue">2025</span>
+                        </div>
+                        <p class="text-xs text-gray-300">
+                            National finalist at University of Dhaka VisionX AI challenge & Season 2 ICT Olympiad Bangladesh. Ranked 10th at CUET Techathon.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certifications & Recommendations -->
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fas fa-certificate text-accentNeon"></i> Certifications & Training
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="glass-panel p-4 rounded-xl">
+                                <span class="text-xs font-mono text-accentNeon block mb-1">Wadhwani Foundation</span>
+                                <span class="text-sm font-semibold text-white block">Job Ready Employability Skills</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl">
+                                <span class="text-xs font-mono text-accentNeon block mb-1">IEEE RAS IUT Branch</span>
+                                <span class="text-sm font-semibold text-white block">Cybernetics PCB Designing</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl">
+                                <span class="text-xs font-mono text-accentNeon block mb-1">UNDP</span>
+                                <span class="text-sm font-semibold text-white block">Human Rights Orientation</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl">
+                                <span class="text-xs font-mono text-accentNeon block mb-1">IAAC Ambassador</span>
+                                <span class="text-sm font-semibold text-white block">Intl Astronomy Competition</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Academic References Box -->
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fas fa-user-check text-accentCyan"></i> Academic References
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="glass-panel p-4 rounded-xl text-xs space-y-1 border border-gray-800">
+                                <strong class="text-white text-sm block">Fahmida Ahmed Antara</strong>
+                                <span class="text-gray-400 block">Capstone Supervisor</span>
+                                <span class="text-accentCyan block">Assistant Professor, UFTB</span>
+                                <span class="text-gray-400 block"><i class="fas fa-envelope mr-1"></i>fahmida0001@uftb.ac.bd</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl text-xs space-y-1 border border-gray-800">
+                                <strong class="text-white text-sm block">Md. Ashiqussalehin</strong>
+                                <span class="text-gray-400 block">Thesis Supervisor</span>
+                                <span class="text-accentCyan block">Assistant Professor, UFTB</span>
+                                <span class="text-gray-400 block"><i class="fas fa-envelope mr-1"></i>ashiqussalehin0001@uftb.ac.bd</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+   
+
+    <section id="contact" class="py-20 bg-cardBg/40 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-mono text-accentCyan uppercase tracking-widest mb-2">Let's Connect</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Contact Me</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Direct Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-panel p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-accentCyan/10 text-accentCyan flex items-center justify-center text-xl">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 block font-mono">Email Address</span>
+                                <a href="mailto:mursalin159358@gmail.com" class="text-sm font-semibold text-white hover:text-accentCyan transition-colors">mursalin159358@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-accentBlue/10 text-accentBlue flex items-center justify-center text-xl">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 block font-mono">Phone Number</span>
+                                <span class="text-sm font-semibold text-white">(+880) 1842027138</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-accentPurple/10 text-accentPurple flex items-center justify-center text-xl">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-400 block font-mono">Locations</span>
+                                <span class="text-sm font-semibold text-white">Gazipur & Dinajpur, Bangladesh</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl text-center space-y-3">
+                        <span class="text-xs font-mono text-gray-400 block">Copy Email to Clipboard</span>
+                        <button onclick="copyToClipboard('mursalin159358@gmail.com')" class="w-full py-2.5 rounded-xl bg-darkBg text-accentCyan border border-accentCyan/30 font-mono text-xs hover:bg-accentCyan/10 transition-all">
+                            <i class="fas fa-copy mr-1"></i> Copy Email
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Contact Form -->
+                <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-2xl">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-mono text-gray-400 mb-1">Your Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-gray-800 text-white text-sm focus:border-accentCyan focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-gray-400 mb-1">Your Email</label>
+                                <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-gray-800 text-white text-sm focus:border-accentCyan focus:outline-none transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">Subject</label>
+                            <input type="text" required placeholder="Research / IoT Project Inquiry" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-gray-800 text-white text-sm focus:border-accentCyan focus:outline-none transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">Message</label>
+                            <textarea rows="4" required placeholder="Hello Mursalin, I'd like to connect regarding..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-gray-800 text-white text-sm focus:border-accentCyan focus:outline-none transition-colors"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-accentCyan to-accentBlue text-darkBg font-bold hover:shadow-lg hover:shadow-accentCyan/30 transition-all">
+                            Send Message <i class="fas fa-paper-plane ml-1"></i>
+                        </button>
+                    </form>
+
+                    <!-- Alert Box -->
+                    <div id="form-status" class="hidden mt-4 p-3 rounded-xl text-xs text-center font-mono"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-darkBg border-t border-gray-800/80 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2">© 2026 Md. Mursalin Hossain Misat. Built for GitHub Pages deployment.</p>
+            <p class="font-mono text-[10px] text-gray-600">IoT & Robotics Engineering | Deep Learning & Embedded Systems</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Filter Skills Function
+        function filterSkills(category) {
+            const tabs = document.querySelectorAll('.skill-tab-btn');
+            const cards = document.querySelectorAll('.skill-card');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-accentCyan', 'text-darkBg');
+                tab.classList.add('glass-panel');
+            });
+
+            event.currentTarget.classList.add('bg-accentCyan', 'text-darkBg');
+            event.currentTarget.classList.remove('glass-panel');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Copy Email function
+        function copyToClipboard(text) {
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            
+            showToast("Copied email address to clipboard!");
+        }
+
+        // CV Download Action
+        function downloadCV() {
+            showToast("Downloading Md. Mursalin Hossain Misat's CV...");
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const status = document.getElementById('form-status');
+            status.classList.remove('hidden', 'bg-red-500/20', 'text-red-300');
+            status.classList.add('bg-emerald-500/20', 'text-emerald-300');
+            status.innerText = "Thank you! Your message has been sent successfully.";
+            e.target.reset();
+
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Custom Toast Notification
+        function showToast(msg) {
+            const status = document.getElementById('form-status');
+            status.classList.remove('hidden', 'bg-red-500/20', 'text-red-300');
+            status.classList.add('bg-accentCyan/20', 'text-accentCyan');
+            status.innerText = msg;
+
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
